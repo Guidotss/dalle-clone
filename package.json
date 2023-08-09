@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "open-browser": "start http://localhost:3000",
+    "dev-browser": "yarn run open-browser && yarn run dev"
   },
   "dependencies": {
     "@types/node": "20.4.9",
@@ -16,6 +18,7 @@
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
     "next": "13.4.13",
+    "openai": "^3.3.0",
     "postcss": "8.4.27",
     "react": "18.2.0",
     "react-dom": "18.2.0",
