@@ -1,12 +1,11 @@
 "use client";
-import { usePromptStore } from "@/store";
 import { useState } from "react";
+import { usePromptStore } from "@/store";
 import { Loader } from "../ui/icons/Loader";
 
 export const SendPromptForm = () => {
   const [input, setInput] = useState<string>("");
-  const { sendPrompt,prompts, loading } = usePromptStore();
-  
+  const { sendPrompt, prompts, loading } = usePromptStore();
 
   const handleSendPrompt = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -43,7 +42,7 @@ export const SendPromptForm = () => {
         </button>
       </form>
       <div className="flex gap-2 mt-5 ">
-        {prompts?.map((prompt,index) => (
+        {prompts?.map((prompt, index) => (
           <span
             key={index}
             className="text-white text-sm cursor-pointer px-3 py-2 border-[1px] rounded-lg hover:opacity-70 transition-opacity duration-300 ease-in-out"

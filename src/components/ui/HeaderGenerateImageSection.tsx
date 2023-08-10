@@ -1,9 +1,9 @@
-"use client"
+"use client";
 import { usePromptStore } from "@/store";
 import { SendPromptForm } from "../form/SendPromptForm";
 
 export const HeaderGenerateImageSection = () => {
-  const { deleteAll } = usePromptStore(); 
+  const { deleteAll } = usePromptStore();
 
   return (
     <header className="w-full">
@@ -13,12 +13,12 @@ export const HeaderGenerateImageSection = () => {
         </h2>
         <SendPromptForm />
       </div>
-      <div className="flex  justify-end md:px-48 mt-10 md:mt-0"> 
-        <span 
+      <div className="flex  justify-end md:px-48 mt-10 md:mt-0">
+        <span
           className="text-white text-lg underline underline-offset-4 decoration-turquoise cursor-pointer"
           onClick={() => deleteAll()}
         >
-            Delete All
+          Delete All
         </span>
       </div>
     </header>

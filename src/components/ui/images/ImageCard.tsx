@@ -11,7 +11,6 @@ interface ImageCardProps {
 
 export const ImageCard: FC<ImageCardProps> = ({ image, isInFavorite }) => {
   const { deleteImage, addFavorites } = usePromptStore();
-  
 
   const handleAddFavorite = (image: string) => {
     addFavorites(image);
@@ -33,18 +32,22 @@ export const ImageCard: FC<ImageCardProps> = ({ image, isInFavorite }) => {
       </figure>
       <div className="flex justify-between text-white mt-2">
         <button
-          className={` border-[1px] px-4 py-1  font-semibold rounded-md hover:bg-white hover:text-black transition-colors duration-300 ease-in-out ${!isInFavorite ? '' : 'w-full'}`}
+          className={` border-[1px] px-4 py-1  font-semibold rounded-md hover:bg-white hover:text-black transition-colors duration-300 ease-in-out ${
+            !isInFavorite ? "" : "w-full"
+          }`}
           onClick={() => deleteImage(image)}
         >
           Delete
         </button>
         <button
-          className={`${ !isInFavorite ? 'hover:bg-white hover:text-black transition-colors duration-300 ease-in-out border-[1px] font-semibold px-4 py-1 rounded-md' : ''}`}
+          className={`${
+            !isInFavorite
+              ? "hover:bg-white hover:text-black transition-colors duration-300 ease-in-out border-[1px] font-semibold px-4 py-1 rounded-md"
+              : ""
+          }`}
           onClick={() => handleAddFavorite(image)}
         >
-          {
-            isInFavorite ? "" : "Add to favorites"
-          }
+          {isInFavorite ? "" : "Add to favorites"}
         </button>
       </div>
     </div>
