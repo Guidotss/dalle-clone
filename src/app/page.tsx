@@ -1,21 +1,32 @@
-import { OpenAiIcon, SendPromptForm } from "@/components";
-
+import {
+  HeaderGenerateImageSection,
+  ImagesGrid,
+  OpenAiIcon,
+} from "@/components";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <main>
       <header>
-          <div className="flex items-center gap-2">
-            <OpenAiIcon/>
-            <h1 className="text-white text-4xl font-semibold tracking-wide">DALL·E</h1>
+        <div className="flex items-center justify-between">
+          <div className="flex gap-2 items-center">
+            <OpenAiIcon />
+            <h1 className="text-white md:text-4xl text-2xl font-semibold tracking-wide">
+              DALL·E
+            </h1>
           </div>
+          <Link href="/favorites" className="text-white text-2xl">
+            Favorites
+          </Link>
+        </div>
       </header>
-      <section className="flex flex-col justify-center items-center mt-10">
-        <header>
-          <h2 className="text-turquoise text-2xl font-semibold tracking-wide">DALL·E is a simple image generation API.</h2>
-          <SendPromptForm/>
-        </header>
+      <section className="flex flex-col justify-center items-center mt-10 w-full">
+        <HeaderGenerateImageSection />
+        <section className="w-full flex items-center justify-center">
+          <ImagesGrid />
+        </section>
       </section>
     </main>
-  )
+  );
 }
