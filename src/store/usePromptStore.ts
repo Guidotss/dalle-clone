@@ -69,14 +69,20 @@ export const usePromptStore = create<PromptStore>((set, get) => ({
   deleteAll: () => {
     localStorage.removeItem("history");
     localStorage.removeItem("promps");
-    set({ history: [], prompts: [] });
+    localStorage.removeItem("favorites");
+    set({ history: [], prompts: [], favorites: [] });
   },
 
   deleteImage: (image: string) => {
     const { history } = get();
     const newHistory = history.filter((item) => item !== image);
-    set({ history: newHistory });
+    const newFavorites = get().favorites.filter((item) => item !== image);
+    set({
+      history: newHistory,
+      favorites: newFavorites,
+    });
     localStorage.setItem("history", JSON.stringify(get().history));
+    localStorage.setItem("favorites", JSON.stringify(get().favorites));
   },
 
   addFavorites: (image: string) => {
